@@ -45,12 +45,13 @@ public class PlayerController : MonoBehaviour
 
 
 
-        //Get movement vector from default inputs (Edit > Project > Inputs)
+        //Generate movement vector from default inputs (Edit > Project > Inputs)
         Vector3 characterForward = transform.forward * Input.GetAxis("Vertical");
         Vector3 characterRight = transform.right * Input.GetAxis("Horizontal");
         Vector3 characterUp = transform.up * Input.GetAxis("Jump") * jumpPower * grounded;
         movement = characterForward + characterRight + characterUp;
         Debug.Log(movement.ToString());
+
         rb.AddForce(movement);
 
         //Set transform rotation per frame updated by mouse axis x, note, rotating around y axis translates to world horizontal scan
